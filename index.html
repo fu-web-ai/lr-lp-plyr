@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LR Loop Player (Minimal)</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">LR Loop Player (Minimal)</h1>
+
+    <div id="hint" class="hint" hidden>
+      <p>URLに下記のようなクエリを付けてアクセスします：</p>
+      <pre>?v=YOUTUBE_VIDEO_ID&s=開始秒&e=終了秒&t=字幕テキスト</pre>
+      <p>例：<code>?v=dQw4w9WgXcQ&s=35.2&e=41.8&t=Hello%20world</code></p>
+    </div>
+
+    <form id="urlForm" class="url-form" autocomplete="off">
+      <div class="grid">
+        <label>Video ID <input name="v" placeholder="例: dQw4w9WgXcQ" required></label>
+        <label>Start (s) <input name="s" type="number" step="0.1" placeholder="例: 35.2"></label>
+        <label>End (e)   <input name="e" type="number" step="0.1" placeholder="例: 41.8"></label>
+        <label>Text (t)  <input name="t" placeholder="字幕テキスト"></label>
+      </div>
+      <button type="submit">この条件で開く</button>
+    </form>
+
+    <section class="player-wrapper">
+      <div id="player"></div>
+    </section>
+
+    <div id="subs" class="subtitles" aria-live="polite"></div>
+
+    <div class="controls">
+      <button id="playBtn" disabled>再生</button>
+      <span id="timeInfo" class="time-info"></span>
+    </div>
+  </main>
+</body>
+</html>
