@@ -10,23 +10,50 @@
 <body>
   <main class="container">
     <h1 class="title">LR Loop Player</h1>
+
     <form id="urlForm" class="url-form" autocomplete="off" hidden>
       <div class="grid">
         <label>Video ID <input name="v" placeholder="例: dQw4w9WgXcQ" required></label>
-        <label>Start (s) <input name="s" type="number" step="0.1"></label>
-        <label>End (e)   <input name="e" type="number" step="0.1"></label>
-        <label>Text (t)  <input name="t"></label>
-        <label>Seg ID    <input name="id"></label>
+        <label>Start (s) <input name="s" type="number" step="0.1" placeholder="18.0"></label>
+        <label>End (e)   <input name="e" type="number" step="0.1" placeholder="25.7"></label>
+        <label>Text (t)  <input name="t" placeholder="字幕テキスト（直指定時のみ）"></label>
+        <label>Seg ID    <input name="id" placeholder="seg001（JSON参照時）」></label>
       </div>
       <button type="submit">この条件で開く</button>
     </form>
+
     <section class="player-wrapper"><div id="player"></div></section>
-    <div id="subs" class="subtitles"></div>
+    <div id="subs" class="subtitles" aria-live="polite"></div>
+
+    <div class="bar">
+      <div class="cluster">
+        <button class="pill pill--dark" data-role="start-dec-05">−0.5</button>
+        <button class="pill pill--dark" data-role="start-dec-01">−0.1</button>
+        <div class="pill readout" id="startReadout" title="タップで 0:ss.s を入力（0:00〜0:59.9）">
+          <div class="label">Start</div>
+          <div id="startVal" class="value">0:00.0</div>
+        </div>
+        <button class="pill pill--dark" data-role="start-inc-01">＋0.1</button>
+        <button class="pill pill--dark" data-role="start-inc-05">＋0.5</button>
+      </div>
+      <div class="cluster">
+        <button class="pill pill--dark" data-role="end-dec-05">−0.5</button>
+        <button class="pill pill--dark" data-role="end-dec-01">−0.1</button>
+        <div class="pill readout" id="endReadout" title="タップで 0:ss.s を入力（0:00〜0:59.9）">
+          <div class="label">End</div>
+          <div id="endVal" class="value">0:03.0</div>
+        </div>
+        <button class="pill pill--dark" data-role="end-inc-01">＋0.1</button>
+        <button class="pill pill--dark" data-role="end-inc-05">＋0.5</button>
+      </div>
+    </div>
+
     <div class="bar">
       <button id="speedBtn" class="bigpill">0.5x</button>
       <button id="playBtn" class="bigpill" disabled>▶︎</button>
       <button id="stopBtn" class="bigpill" disabled>■</button>
     </div>
+
     <div class="time-info" id="timeInfo"></div>
   </main>
 </body>

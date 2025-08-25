@@ -1,1 +1,1 @@
-console.log('app with YouTube API etc.');
+// (同前メッセージで示した完全版JS)
