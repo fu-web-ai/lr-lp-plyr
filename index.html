@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>LR Loop Player</title>
-  <link rel="stylesheet" href="./style.css">
-  <script defer src="./app.js"></script>
+  <link rel="stylesheet" href="./style.css?v=20250825-1">
+<script defer src="./app.js?v=20250825-1"></script>
 </head>
 <body>
   <main class="container">
     <h1 class="title">LR Loop Player</h1>
+    <!-- build: 2025-08-25 12:10 -->
 
     <form id="urlForm" class="url-form" autocomplete="off" hidden>
       <div class="grid">
@@ -17,7 +18,7 @@
         <label>Start (s) <input name="s" type="number" step="0.1" placeholder="18.0"></label>
         <label>End (e)   <input name="e" type="number" step="0.1" placeholder="25.7"></label>
         <label>Text (t)  <input name="t" placeholder="字幕テキスト（直指定時のみ）"></label>
-        <label>Seg ID    <input name="id" placeholder="seg001（JSON参照時）」></label>
+        <label>Seg ID    <input name="id" placeholder="seg001（JSON参照時）"></label>
       </div>
       <button type="submit">この条件で開く</button>
     </form>
